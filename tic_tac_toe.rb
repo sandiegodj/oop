@@ -97,7 +97,7 @@ class Game
   end
 
   def clear
-    system "clear" or system "cls"
+    system "clear"
   end
 
   def stalemate

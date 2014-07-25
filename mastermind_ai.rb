@@ -11,6 +11,7 @@ class Game
 
 
   def controller
+    clear
     puts "Please choose which game option you would like to play:"
     sleep(1)
     puts "Enter 1 to be the guesser; 2 to be the creator"
@@ -30,18 +31,19 @@ class Game
 
 
   def display_instructions
+  clear
   puts "'Mastermind' The Game"
   sleep(2)
   puts "The computer will create a secret pattern of 4 unique letters ranging from A to F."
-  sleep(3)
+  sleep(2)
   puts "You have twelve chances to guess the correct pattern."
-  sleep(3)
+  sleep(2)
   puts "After each guess, you will recieve feedback:"
   sleep(2)
   puts "A 'Z' will represent a correct letter in the correct spot,"
   sleep(2)
   puts "and a 'X' will represent a correct color in a wrong spot."
-  sleep(2)
+  sleep(1)
   puts "Good luck!"
   sleep(1)
   puts "\n\n\n"
@@ -49,6 +51,7 @@ class Game
 
 
   def user_generate_code
+    clear
     pass = false
     invalid = false
     puts "Enter a pattern of 4 unique letters ranging from A to F"
@@ -80,11 +83,12 @@ class Game
 
 
   def gameplay
-    @turns = 1
+    @turns = 0
     @win = false
     until @win
       if @turns == 12
       puts "GAME OVER!  Better luck next time!"
+      exit
       end
       if @ai 
         ai_guess
@@ -94,6 +98,11 @@ class Game
       end
         placement
         correct_color
+    end
+    if @ai
+      puts "The computer is pretty smart!"
+    else
+    puts "You WIN!"
     end
   end
 
@@ -154,6 +163,12 @@ class Game
     puts ""
     @turns += 1
   end
+
+
+  def clear
+    system "clear"
+  end
+
 end
 
 game = Game.new
