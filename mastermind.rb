@@ -1,3 +1,4 @@
+class Game
 #maybe put a check to make sure player does not input the same letter twice
 #and an AI if I find the time
 
